@@ -1,0 +1,15 @@
+<div class="max-w-sm mx-auto relative top-10 p-7 rounded-2xl bg-white">
+  <form [formGroup]="loginForm" (ngSubmit)="submitLogin()" class="flex flex-col">
+    <h2 class="font-bold text-2xl mb-6">Авторизация</h2>
+    <label class="label mb-1">
+      Логин
+      <input type="text" class="input mb-6" formControlName="name">
+    </label>
+    <label class="label mb-1">
+      Пароль
+      <input type="password" class="input mb-6" formControlName="password">
+    </label>
+    <button class="btn mb-3" type="submit">Вход</button>
+    <a href="#" routerLink="/register" class="link text-center">Регистрация</a>
+  </form>
+</div>

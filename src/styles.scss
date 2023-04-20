@@ -1,1 +1,50 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-size: 14px;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+*, :after, :before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  outline: none;
+}
+
+@layer components {
+  .input {
+    @apply w-full text-black border border-gray-dark rounded-xl py-3 px-4 focus:border-viol;
+  }
+
+  .label {
+    @apply text-gray-dark block;
+  }
+
+  .btn {
+    @apply bg-viol px-7 py-3 block text-white rounded-xl hover:bg-viol-dark transition-all;
+  }
+
+  .btn-red {
+    @apply bg-red px-7 py-3 block text-white rounded-xl hover:bg-red-dark transition-all;
+  }
+}
+
+.link {
+  @apply text-viol hover:text-viol-dark transition-all hover:underline;
+}
+
+.link.active {
+  @apply underline;
+}
