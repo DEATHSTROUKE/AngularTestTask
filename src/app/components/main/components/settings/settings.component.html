@@ -8,7 +8,8 @@
         </div>
         <label class="label mb-3 md:mr-3 md:mb-0">
           Ссылка на аватар
-          <input type="text" class="input" formControlName="avatar">
+          <input type="text" class="input" formControlName="avatar"
+                 [value]="this.avatarForm.value.avatar">
         </label>
         <button class="btn mb-3 md:mr-3 md:mb-0" (click)="changeAvatar()">Сменить аватар</button>
         <button class="btn-red" type="submit" (click)="changeAvatar(true)">Удалить аватар</button>
