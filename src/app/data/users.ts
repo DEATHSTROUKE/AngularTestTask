@@ -3,8 +3,8 @@ import {IUser} from "../models/user";
 export let users_data: IUser[] = [
   {
     id: '1',
-    name: 'user1',
-    password: '1',
+    name: 'User1',
+    password: 'password123',
     avatar: 'https://www.digiseller.ru/preview/587043/p1_2295104_8d88ab8d.jpg',
     accounts: [{
       id: '1',
@@ -41,10 +41,10 @@ export let users_data: IUser[] = [
     }, {
       id: '4',
       type: 'instagram',
-      login: 'user1',
+      login: 'Cool_Boy',
       password: '123123',
       avatar: 'https://otkritkis.com/wp-content/uploads/2022/06/pdtrp.jpg',
-      birthdate: '2005-12-12',
+      birthdate: '',
       gender: 'мужской',
       link: 'https://fb.com/123',
       reg_date: '2020-06-20',
@@ -52,13 +52,12 @@ export let users_data: IUser[] = [
     }, {
       id: '5',
       type: 'twitter',
-      login: 'user1',
+      login: 'ITMO_University',
       password: '123123',
       birthdate: '2003-03-24',
       gender: 'мужской',
-      link: 'https://fb.com/123',
+      link: 'https://twitter.com/123',
       reg_date: '2010-12-09',
-      twitter_field: 'example3'
     },
     ]
   }

@@ -21,6 +21,8 @@ export class ModalComponent implements OnInit {
         next: () => this.modalService.toggleIsOpen(),
         error: () => console.error('При добавлении аккаунта произошла ошибка')
       })
+    } else {
+      alert('Поля: Соцсеть, Логин и Пароль не должны быть пустыми')
     }
   }
 
@@ -30,6 +32,8 @@ export class ModalComponent implements OnInit {
         next: () => this.modalService.toggleIsOpen(),
         error: () => console.error('При редактировании аккаунта произошла ошибка')
       })
+    } else {
+      alert('Поля: Соцсеть, Логин и Пароль не должны быть пустыми')
     }
   }
 
