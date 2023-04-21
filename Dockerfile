@@ -1,15 +1,10 @@
-FROM node:12.16.1-alpine As builder
-
+FROM node:latest as node
 WORKDIR /usr/src/app
-
-COPY package.json package-lock.json ./
-
+COPY package*.json ./
 RUN npm install
-
 COPY . .
+RUN npm run build
 
-RUN npm run build --prod
-
-FROM nginx:1.15.8-alpine
-
-COPY --from=builder /usr/src/app/dist/SampleApp/ /usr/share/nginx/html
+FROM nginx:latest
+COPY --from=node /usr/src/app/dist/angular-docker /usr/share/nginx/html
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf

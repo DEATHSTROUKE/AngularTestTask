@@ -3,11 +3,11 @@
 ## Запуск в Docker
 
 ```sh
-docker build . -t test-task
+docker build -t angular .
 ```
 
 ```sh
-docker run -p 3000:80 test-task
+docker run -p 80:80 --name angular-container -d angular
 ```
 
 ## Development server
