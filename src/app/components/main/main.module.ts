@@ -7,6 +7,9 @@ import {HeaderComponent} from "./components/header/header.component";
 import {AccountsComponent} from "./components/accounts/accounts.component";
 import {SettingsComponent} from "./components/settings/settings.component";
 import { AccountComponent } from './components/account/account.component';
+import { AccountPipe } from './pipes/account.pipe';
+import {ModalComponent} from "./components/modal/modal.component";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -15,11 +18,14 @@ import { AccountComponent } from './components/account/account.component';
     HeaderComponent,
     AccountsComponent,
     SettingsComponent,
-    AccountComponent
+    AccountComponent,
+    AccountPipe,
+    ModalComponent,
   ],
   imports: [
     CommonModule,
-    MainRoutingModule
+    MainRoutingModule,
+    ReactiveFormsModule
   ],
   bootstrap: [MainComponent]
 })

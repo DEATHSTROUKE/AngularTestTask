@@ -1,0 +1,18 @@
+.fields {
+  grid-template-columns: repeat(2, minmax(350px, 1fr));
+  @apply grid gap-4 mb-5;
+}
+
+.modal-form {
+  @apply bg-white  p-10 rounded-xl max-w-screen-xl fixed left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2;
+}
+
+@media screen and (max-width: 840px) {
+  .fields {
+    @apply grid-cols-1;
+  }
+
+  .modal-form {
+    @apply h-screen overflow-auto p-10 w-screen;
+  }
+}

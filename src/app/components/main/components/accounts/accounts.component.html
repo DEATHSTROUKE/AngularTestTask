@@ -1,17 +1,22 @@
 <div class="max-w-screen-xl mx-auto p-6">
   <div class="flex flex-col bg-white p-10 rounded-xl">
     <div>
-      <button class="btn mb-5">Добавить аккаунт</button>
+      <button class="btn mb-5" (click)="modalService.toggleIsOpen()">Добавить аккаунт</button>
     </div>
     <div class="mb-10">
       <h2 class="font-bold text-2xl mb-4">Facebook</h2>
-      <app-account/>
+        <app-account *ngFor="let account of (this.userService.accounts | account:'facebook')"
+                     [account]="account"/>
     </div>
     <div class="mb-10">
       <h2 class="font-bold text-2xl mb-4">Twitter</h2>
+      <app-account *ngFor="let account of this.userService.accounts | account:'twitter'"
+                   [account]="account"/>
     </div>
     <div class="mb-10">
       <h2 class="font-bold text-2xl mb-4">Instagram</h2>
+      <app-account *ngFor="let account of this.userService.accounts | account:'instagram'" [account]="account"/>
     </div>
   </div>
 </div>
+<app-modal *ngIf="modalService.isOpen"></app-modal>

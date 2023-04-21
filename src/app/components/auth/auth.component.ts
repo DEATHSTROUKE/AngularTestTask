@@ -16,7 +16,6 @@ export class AuthComponent implements OnInit {
   }
 
   submitLogin() {
-    console.log(this.loginForm.value);
     const userInfo: IUserInfo = {
       name: this.loginForm.value.name,
       password: this.loginForm.value.password

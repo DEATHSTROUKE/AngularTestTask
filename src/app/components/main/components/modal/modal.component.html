@@ -1,59 +1,69 @@
-<div
-  class="absolute min-w-full min-h-full bg-black bg-opacity-70 left-0 top-0 z-10 flex items-center justify-center py-16">
-  <div class="bg-white  p-10 rounded-xl max-w-md">
-    <h2 class="font-bold text-xl mb-3">Создание аккаунта</h2>
-    <div class="mb-5">
-      <label class="label mb-4">
-        Соцсеть
-        <select class="input px-2">
-          <option value=""></option>
-          <option value="">Facebook</option>
-          <option value="">Twitter</option>
-          <option value="">Instagram</option>
-        </select>
-      </label>
-
-      <label class="label mb-4">
-        Ссылка на профиль
-        <input type="text" class="input">
-      </label>
-
-      <label class="label mb-1">
-        Логин
-        <input type="text" class="input">
-      </label>
-
-      <label class="label mb-1">
-        Пароль
-        <input type="password" class="input">
-      </label>
-
-      <label class="label mb-1">
-        Дата регистрации
-        <input type="text" class="input">
-      </label>
-
-      <label class="label mb-4">
-        Пол
-        <select class="input px-2">
-          <option value=""></option>
-          <option value="">Мужской</option>
-          <option value="">Женский</option>
-        </select>
-      </label>
-
-      <label class="label mb-1">
-        Дата рождения
-        <input type="text" class="input">
-      </label>
-
-      <label class="label mb-1">
-        Доп поле для facebook
-        <input type="text" class="input">
-      </label>
-    </div>
-    <div class="">
-      <button class="btn mx-auto">Создать</button>
-    </div>
-  </div>
+<div class="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-70"
+     (click)="modalService.toggleIsOpen()">
 </div>
+<form [formGroup]="accountForm" (ngSubmit)="this.modalService.isEdit ? onEdit() : onCreate()"
+      class="modal-form">
+  <h2 class="font-bold text-xl mb-3">
+    {{this.modalService.isEdit ? 'Редактирование' : 'Создание'}} аккаунта
+  </h2>
+  <div class="fields">
+    <label class="label">
+      Соцсеть
+      <select class="input px-2" formControlName="type">
+        <option value=""></option>
+        <option value="facebook">Facebook</option>
+        <option value="twitter">Twitter</option>
+        <option value="instagram">Instagram</option>
+      </select>
+    </label>
+
+    <label class="label">
+      Ссылка на профиль
+      <input type="text" class="input" formControlName="link">
+    </label>
+
+    <label class="label">
+      Логин
+      <input type="text" class="input" formControlName="login">
+    </label>
+
+    <label class="label">
+      Пароль
+      <input type="text" class="input" formControlName="password">
+    </label>
+
+    <label class="label">
+      Ссылка на аватар
+      <input type="text" class="input" formControlName="avatar">
+    </label>
+
+    <label class="label">
+      Дата регистрации
+      <input type="date" class="input" formControlName="reg_date">
+    </label>
+
+    <label class="label">
+      Дата рождения
+      <input type="date" class="input" formControlName="birthdate">
+    </label>
+
+    <label class="label">
+      Пол
+      <select class="input px-2" formControlName="gender">
+        <option value=""></option>
+        <option value="мужской">Мужской</option>
+        <option value="женский">Женский</option>
+      </select>
+    </label>
+
+    <label class="label">
+      Доп поле для facebook
+      <input type="text" class="input" formControlName="extra_field">
+    </label>
+  </div>
+  <div class="">
+    <button class="btn mx-auto" type="submit">
+      {{this.modalService.isEdit ? 'Редактировать' : 'Создать'}}
+    </button>
+  </div>
+</form>

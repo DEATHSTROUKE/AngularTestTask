@@ -29,7 +29,6 @@ export class AuthService {
   login(userInfo: IUserInfo): Observable<string | boolean> {
     const user = users_data.find(item => userInfo.name === item.name &&
       userInfo.password === item.password);
-    console.log(user);
 
     if (user) {
       this.userName = user.name;
@@ -38,8 +37,9 @@ export class AuthService {
       return of(true);
     }
 
-    return throwError(() => new Error('Failed login'))
+    return throwError(() => new Error('Ошибка авторизации'))
   }
 
-
+  logout() {
+  }
 }
