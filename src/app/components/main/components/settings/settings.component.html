@@ -1,17 +1,16 @@
-<div class="max-w-screen-lg mx-auto p-6">
-  <div class="flex flex-col bg-white rounded-xl p-10">
+<div class="max-w-screen-lg mx-auto md:p-6">
+  <div class="flex flex-col bg-white md:rounded-xl p-10 md:p-6 md:min-h-screen">
     <form class="mb-10" [formGroup]="avatarForm">
       <h2 class="font-bold text-2xl mb-3">Настройки</h2>
-      <div class="flex items-end">
+      <div class="block md:flex md:items-end flex-col md:flex-row">
         <div class="w-20 h-20 bg-viol rounded-full mr-5 overflow-hidden">
           <img src="{{this.authService.avatar || '/assets/ava_default.jpg'}}" alt="" class="rounded-full object-cover">
         </div>
-        <label class="label mr-3">
+        <label class="label mb-3 md:mr-3 md:mb-0">
           Ссылка на аватар
-          <input type="text" class="input" formControlName="avatar"
-                 [value]="this.avatarForm.value.avatar">
+          <input type="text" class="input" formControlName="avatar">
         </label>
-        <button class="btn mr-3" (click)="changeAvatar()">Сменить аватар</button>
+        <button class="btn mb-3 md:mr-3 md:mb-0" (click)="changeAvatar()">Сменить аватар</button>
         <button class="btn-red" type="submit" (click)="changeAvatar(true)">Удалить аватар</button>
       </div>
     </form>

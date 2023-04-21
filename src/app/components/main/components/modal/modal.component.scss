@@ -4,7 +4,7 @@
 }
 
 .modal-form {
-  @apply bg-white  p-10 rounded-xl max-w-screen-xl fixed left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2;
+  @apply bg-white  p-10 md:rounded-xl max-w-screen-xl fixed left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2;
 }
 
 @media screen and (max-width: 840px) {
