@@ -1,14 +1,16 @@
 <header class="bg-white py-4 px-6">
   <div class="flex justify-between items-center max-w-screen-xl mx-auto">
     <div class="flex items-center">
-      <div class="w-10 h-10 rounded-full mr-3 relative">
-        <img class="object-cover rounded-full" src="/assets/ava_default.jpg" alt="Avatar">
+      <div class="w-10 h-10 rounded-full mr-3 relative overflow-hidden">
+        <img class="object-cover rounded-full" src="{{this.authService.avatar || '/assets/ava_default.jpg'}}"
+             alt="Avatar">
       </div>
       <h3 class="font-bold text-xl">{{userName}}</h3>
     </div>
     <div>
       <a routerLink="" class="link mr-3">Профиль</a>
-      <a routerLink="settings" class="link">Настройки</a>
+      <a routerLink="settings" class="link mr-3">Настройки</a>
+      <a class="link cursor-pointer" (click)="logout()">Выйти</a>
     </div>
   </div>
 </header>

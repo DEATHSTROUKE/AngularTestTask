@@ -1,6 +1,6 @@
-import {Injectable} from '@angular/core';
-import {Router} from "@angular/router";
+import { Injectable } from '@angular/core';
 import {Account, ICreateAccount} from "../../../models/account";
+import {Router} from "@angular/router";
 import {AuthService} from "../../../services/auth.service";
 import {users_data} from "../../../data/users";
 import {Observable, of} from "rxjs";
@@ -15,13 +15,12 @@ export class UserService {
   constructor(private router: Router, private authService: AuthService) {
     this.userName = this.authService.getUserFromStorage();
     if (this.userName != null) {
-      this.accounts = users_data.find(item => item.name == this.userName)?.accounts ?? []
+      this.accounts = users_data.find(item => item.name == this.userName)?.accounts ?? [];
     }
   }
 
   createAccount(newAccount: ICreateAccount): Observable<boolean> {
     const account = this.formToAccount(newAccount);
-    console.log(account)
     this.accounts = [...this.accounts, account];
 
     return of(true);
@@ -29,7 +28,6 @@ export class UserService {
 
   editAccount(editAccount: ICreateAccount, id: string): Observable<boolean> {
     const account = this.formToAccount(editAccount, id);
-    console.log(id, account)
     this.accounts = this.accounts.map(item => {
       if (item.id === id) {
         return account;

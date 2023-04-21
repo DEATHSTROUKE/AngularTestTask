@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {AuthService} from "../../services/auth.service";
 import {IUserInfo} from "../../models/user";
@@ -11,26 +11,39 @@ import {IUserInfo} from "../../models/user";
 })
 export class AuthComponent implements OnInit {
   loginForm!: FormGroup;
+  isLogin: boolean;
 
   constructor(private router: Router, private authService: AuthService) {
+    this.isLogin = this.router.url === '/login';
   }
 
-  submitLogin() {
-    const userInfo: IUserInfo = {
-      name: this.loginForm.value.name,
-      password: this.loginForm.value.password
-    }
-
+  onLogin() {
+    const userInfo: IUserInfo = this.formToUserInfo();
     this.authService.login(userInfo).subscribe({
-      next: () => console.log('Все круто'),
+      next: () => console.log('Вы успешно авторизовались'),
       error: (err) => alert(err.message)
     })
   }
 
+  onRegister() {
+    const userInfo: IUserInfo = this.formToUserInfo();
+    this.authService.register(userInfo).subscribe({
+      next: () => console.log('Вы успешно зарегистрировались'),
+      error: (err) => alert(err.message)
+    })
+  }
+
+  formToUserInfo(): IUserInfo {
+    return {
+      name: this.loginForm.value.name,
+      password: this.loginForm.value.password
+    };
+  }
+
   ngOnInit(): void {
     this.loginForm = new FormGroup({
-      name: new FormControl(''),
-      password: new FormControl('')
+      name: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required])
     })
     if (this.authService.isLoggedIn()) {
       this.router.navigate(['']);

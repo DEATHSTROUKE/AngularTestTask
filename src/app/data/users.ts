@@ -5,6 +5,7 @@ export let users_data: IUser[] = [
     id: '1',
     name: 'user1',
     password: '1',
+    avatar: 'https://www.digiseller.ru/preview/587043/p1_2295104_8d88ab8d.jpg',
     accounts: [{
       id: '1',
       type: 'facebook',
